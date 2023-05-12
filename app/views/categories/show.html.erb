@@ -1,0 +1,6 @@
+<h1 style="font-weight: bold;color: #08088A; text-align: center">WEBINTEL</h1><h1 class="m-1"><%= "Category: " + @category.name %><% if logged_in? and current_user.admin? %><%= link_to 'Edit category', edit_category_path(@category), class: "btn btn-outline-info ml-2 mb-1", style: "float: right" %><% end %></h1>
+<%= will_paginate @category_articles %>
+<%= render 'articles/article', obj: @category_articles %>
+<div class="pagination">
+  <%= will_paginate @category_articles %>
+</div>

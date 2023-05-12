@@ -1,0 +1,9 @@
+<h1 align="center" style="margin-bottom:30px;">All <span style="color: #08088A;font-weight: bold">WEBINTEL</span> categories</h1>
+<br>
+
+<% @categories.each do |category| %>
+  <div class="contianer" style="border: 1px solid #A59696;background-color: #F4F6F6; border-radius: 5px; padding: 20px;margin-bottom: 15px;font-size: 22px;display: flex; justify-content: center">
+    <b style="color: #08088A"><i><%=link_to "#{category.name}", category_path(category), class:"nav-link" %></i></b>
+  </div>
+<% end %>
+<%= will_paginate %>

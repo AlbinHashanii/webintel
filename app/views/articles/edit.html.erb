@@ -1,0 +1,6 @@
+<div class="editt" style="margin-top: 20px;">
+  <% if current_user == @article.user %>
+  <h1 class="container">Edit this article</h1>
+    <%= render 'form' %>
+    <% end %>
+</div>

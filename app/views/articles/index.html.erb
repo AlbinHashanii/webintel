@@ -1,0 +1,7 @@
+<h1 style="font-weight: bold;color: #08088A; text-align: center">WEBINTEL</h1>
+
+<%= render 'article', obj: @articles %>
+<div class="pagination">
+  <%= will_paginate @articles, previous_label: '&laquo; Previous', next_label: 'Next &raquo;', class: 'pagination', inner_window: 2, outer_window: 0 %>
+
+</div>

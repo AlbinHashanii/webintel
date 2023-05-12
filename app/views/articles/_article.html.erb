@@ -1,0 +1,35 @@
+<% obj.each do |article| %>
+  <div class="row" style="border:1px solid #A59696; margin-bottom: 20px; margin-top: 10px; margin-left: 6px; margin-right: 6px; border-radius: 10px;background-color: #F4F6F6 ; padding: 15px;">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+        <div style="display: flex">
+        <div style="margin-right: 5px;">
+          <%= gravatar_for article.user , size: 30 %> </div><div style="margin-top: 3px;"><%= link_to article.user.username, user_path(article.user) %></div>
+        </div>
+        <hr style="width: 1060px;margin-top: -1px;">
+        <br><br>
+        <div class="article-title">
+          <%= link_to article.title, article_path(article) %>
+        </div>
+        <div class="article-body">
+          <%= article.description %>
+          <div class="article-meta-details">
+
+            <i><%= time_ago_in_words(article.created_at) %> ago </i>
+            </small>
+          </div>
+        </div>
+        <% if article.categories.any? %>
+          <i><%= render article.categories %></i>
+        <% end %>
+
+        <br>
+        <div class="article-actions">
+          <% if logged_in? && (current_user == article.user || current_user.admin?) %>
+          <%= link_to 'Edit this post', edit_article_path(article), class: "btn btn-primary" %>
+            <% end  %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
